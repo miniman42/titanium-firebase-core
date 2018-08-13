@@ -54,7 +54,7 @@ public class TitaniumFirebaseCoreModule extends KrollModule
 				try {
 					JSONObject json = new JSONObject(loadJSONFromAsset(param.getString("file")));
 					JSONObject projectInfo = json.getJSONObject("project_info");
-					String packageName = TiApplication.getAppCurrentActivity().getPackageName();
+					String packageName = TiApplication.getInstance().getApplicationContext().getPackageName();
 
 					if (projectInfo.has("storage_bucket")) {
 						storageBucket = projectInfo.getString("storage_bucket");
@@ -113,13 +113,13 @@ public class TitaniumFirebaseCoreModule extends KrollModule
 			options.setGcmSenderId(GCMSenderID);
 
 			try {
-				FirebaseApp.initializeApp(getActivity().getApplicationContext(), options.build());
+				FirebaseApp.initializeApp(TiApplication.getInstance().getApplicationContext(), options.build());
 			} catch (IllegalStateException e) {
 				Log.w(LCAT, "There was a problem initializing FirebaseApp or it was initialized a second time.");
 			}
 		} else {
 			try {
-				FirebaseApp.initializeApp(getActivity().getApplicationContext());
+				FirebaseApp.initializeApp(TiApplication.getInstance().getApplicationContext());
 			} catch (IllegalStateException e) {
 				Log.w(LCAT, "There was a problem initializing FirebaseApp or it was initialized a second time.");
 			}
