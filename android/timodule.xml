@@ -2,6 +2,6 @@
 <ti:module xmlns:ti="http://ti.appcelerator.org" xmlns:android="http://schemas.android.com/apk/res/android">
 	<android xmlns:android="http://schemas.android.com/apk/res/android" />
 	<modules>
-		 <module platform="android" version="11.8.0">ti.playservices</module>
+		 <module platform="android" version="15.0.0">ti.playservices</module>
 	</modules>
 </ti:module>
