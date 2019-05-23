@@ -41,6 +41,7 @@ public class TitaniumFirebaseCoreModule extends KrollModule
 	@Kroll.method
 	public boolean configure(@Kroll.argument(optional = true) KrollDict param)
 	{
+		Log.d(LCAT, "Running Configure");
 		String filename = null;
 
 		if (param == null) {
@@ -95,6 +96,7 @@ public class TitaniumFirebaseCoreModule extends KrollModule
 				Log.e(LCAT, "Error parsing file");
 			}
 		} else {
+			Log.d(LCAT, "Configure - Using Parameters");
 			// use parameters
 			if (param.containsKey("APIKey")) {
 				apiKey = param.getString("APIKey");
