@@ -2,11 +2,11 @@
  * titanium-firebase-core
  *
  * Created by Hans Knoechel
- * Copyright (c) 2017 Axway Appcelerator. All rights reserved.
+ * Copyright (c) 2020 by Hans Knöchel. All rights reserved.
  */
 
 #import <FirebaseCore/FirebaseCore.h>
-#import <FirebaseInstanceId/FIRInstanceID.h>
+#import <FirebaseInstanceId/FirebaseInstanceId.h>
 
 #import "FirebaseCoreModule.h"
 #import "TiBase.h"
@@ -25,14 +25,6 @@
 - (NSString *)moduleId
 {
   return @"firebase.core";
-}
-
-#pragma mark Lifecycle
-
-- (void)startup
-{
-  [super startup];
-  NSLog(@"[DEBUG] %@ loaded", self);
 }
 
 #pragma Public APIs
@@ -90,6 +82,7 @@
     ADD_TO_OPTIONS_IF_SET(payload, @"databaseURL", options);
     ADD_TO_OPTIONS_IF_SET(payload, @"deepLinkURLScheme", options);
     ADD_TO_OPTIONS_IF_SET(payload, @"storageBucket", options);
+    ADD_TO_OPTIONS_IF_SET(payload, @"appGroupID", options);
   }
   
   if (name != nil) {
